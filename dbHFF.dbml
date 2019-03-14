@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbHolidayForFun" Class="dbHFFDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-MCAFDSN8\SQLEXPRESS;Initial Catalog=dbHolidayForFun;Integrated Security=True" SettingsObjectName="HolidayForFun.Properties.Settings" SettingsPropertyName="dbHolidayForFunConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cottages" Member="cottages">
+    <Type Name="cottage">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="house_number" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="typeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sizeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cottage_cottagesinreservation" Member="cottagesinreservations" ThisKey="id" OtherKey="cottageId" Type="cottagesinreservation" />
+      <Association Name="cottage_pricehistory" Member="pricehistories" ThisKey="id" OtherKey="cottageId" Type="pricehistory" />
+      <Association Name="cottagesize_cottage" Member="cottagesize" ThisKey="sizeId" OtherKey="id" Type="cottagesize" IsForeignKey="true" />
+      <Association Name="cottagetype_cottage" Member="cottagetype" ThisKey="typeId" OtherKey="id" Type="cottagetype" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.reservations" Member="reservations">
+    <Type Name="reservation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="startdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="enddate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="reservation_cottagesinreservation" Member="cottagesinreservations" ThisKey="id" OtherKey="reservationId" Type="cottagesinreservation" />
+      <Association Name="customer_reservation" Member="customer" ThisKey="customerId" OtherKey="id" Type="customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cottagesinreservation" Member="cottagesinreservations">
+    <Type Name="cottagesinreservation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cottageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="reservationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cottage_cottagesinreservation" Member="cottage" ThisKey="cottageId" OtherKey="id" Type="cottage" IsForeignKey="true" />
+      <Association Name="reservation_cottagesinreservation" Member="reservation" ThisKey="reservationId" OtherKey="id" Type="reservation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cottagesizes" Member="cottagesizes">
+    <Type Name="cottagesize">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cottagesize_cottage" Member="cottages" ThisKey="id" OtherKey="sizeId" Type="cottage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cottagetypes" Member="cottagetypes">
+    <Type Name="cottagetype">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="cottagetype_cottage" Member="cottages" ThisKey="id" OtherKey="typeId" Type="cottage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customers" Member="customers">
+    <Type Name="customer">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="adress" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phonenumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="customer_reservation" Member="reservations" ThisKey="id" OtherKey="customerId" Type="reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pricehistories" Member="pricehistories">
+    <Type Name="pricehistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="startdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="enddate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="cottageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cottage_pricehistory" Member="cottage" ThisKey="cottageId" OtherKey="id" Type="cottage" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

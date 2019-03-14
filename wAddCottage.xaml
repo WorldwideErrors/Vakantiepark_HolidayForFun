@@ -1,0 +1,71 @@
+﻿<Window x:Class="HolidayForFun.wAddCottage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HolidayForFun"
+        mc:Ignorable="d"
+        Title="Holiday for Fun" Height="890.7" Width="1551.6" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Image1.png"/>
+    </Window.Background>
+    <Grid Margin="0,0,70.6,0.2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="888*"/>
+            <ColumnDefinition Width="355*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnBack" Content="" Margin="10,0,0,10"  BorderBrush="#00000000" Height="99" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="99" Click="btnBack_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="BackForFun.png"/>
+            </Button.Background>
+        </Button>
+        <Image Margin="0,0,-0.6,0" Source="HolidayForFun.png" Stretch="Fill" Height="245" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="258" Grid.Column="1"/>
+        <DataGrid x:Name="dgCottages" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="529" Margin="16,10,0,0" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" VerticalAlignment="Top" Width="299" FontFamily="Arial" BorderBrush="Black" Background="White">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Number" Binding="{Binding house_number}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Path=cottagetype.name}"/>
+                <DataGridTextColumn Header="Size" Binding="{Binding Path=cottagesize.size}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Path=pricehistory.price}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dgCottageType" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" HorizontalAlignment="Left" Height="102" Margin="146.4,10,0,0" VerticalAlignment="Top" Width="68" Background="White" BorderBrush="Black" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cottage" Binding="{Binding name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dgCottageSize" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" HorizontalAlignment="Left" Height="102" Margin="886,10,0,0" VerticalAlignment="Top" Width="98" Background="White" BorderBrush="Black">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Size" Binding="{Binding size}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtTypename" HorizontalAlignment="Left" Height="22" Margin="220.4,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" BorderBrush="Black" Grid.Column="1"/>
+        <Label Content="Add new cottage type" HorizontalAlignment="Left" Margin="218.2,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="btnSaveNewType" Content="Save type" HorizontalAlignment="Left" Margin="220.4,117,0,0" VerticalAlignment="Top" Width="126" Click="btnSaveNewType_Click" Height="22" Grid.Column="1"/>
+        <Button x:Name="btnSaveSize" Content="Save size" HorizontalAlignment="Left" Margin="9.4,117,0,0" VerticalAlignment="Top" Width="124" Height="22" Click="btnSaveSize_Click" Grid.Column="1"/>
+        <TextBox x:Name="txtSize" HorizontalAlignment="Left" Height="22" Margin="9.4,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" BorderBrush="Black" Grid.Column="1"/>
+        <TextBox x:Name="txtSizeCottage" HorizontalAlignment="Left" Height="22" Margin="9.4,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" BorderBrush="Black" Grid.Column="1"/>
+        <Label Content="Add new cottage size" HorizontalAlignment="Left" Margin="9.8,10,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Size name:" HorizontalAlignment="Left" Margin="984,36,0,0" VerticalAlignment="Top" Height="22" Width="82" FontSize="11" Grid.ColumnSpan="2"/>
+        <Label Content="Size Number:" HorizontalAlignment="Left" Margin="984,63,0,0" VerticalAlignment="Top" Height="22" Width="82" FontSize="11" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSelectSize" Content="Select size" HorizontalAlignment="Left" Margin="9.4,144,0,0" VerticalAlignment="Top" Width="124" Height="22" Click="btnSelectSize_Click" Grid.Column="1"/>
+        <Button x:Name="btnDeleteSize" Content="Delete size" HorizontalAlignment="Left" Margin="9.4,171,0,0" VerticalAlignment="Top" Width="124" Height="22" Grid.Column="1" Click="btnDeleteSize_Click"/>
+        <Button x:Name="btnSelectType" Content="Select type" HorizontalAlignment="Left" Margin="220.4,144,0,0" VerticalAlignment="Top" Width="126" Click="btnSelectType_Click" Height="22" Grid.Column="1"/>
+        <Button x:Name="btnDeleteType" Content="Delete type" HorizontalAlignment="Left" Margin="220.4,171,0,0" VerticalAlignment="Top" Width="126" Click="btnDeleteType_Click" Height="22" Grid.Column="1"/>
+        <ComboBox x:Name="cbType" Grid.Column="1" HorizontalAlignment="Left" Margin="220.4,90,0,0" VerticalAlignment="Top" Width="126" Height="22"/>
+        <ComboBox x:Name="cbSize" Grid.Column="1" HorizontalAlignment="Left" Margin="9.4,90,0,0" VerticalAlignment="Top" Width="124" Height="22"/>
+        <Label Content="Add new cottage" HorizontalAlignment="Left" Margin="415,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Cottage number:" HorizontalAlignment="Left" Margin="320,36,0,0" VerticalAlignment="Top" Height="22" Width="95" FontSize="11"/>
+        <TextBox x:Name="txtCotnumber" HorizontalAlignment="Left" Height="22" Margin="415,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" BorderBrush="Black"/>
+        <TextBox x:Name="txtCotprice" HorizontalAlignment="Left" Height="22" Margin="415,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" BorderBrush="Black"/>
+        <Label Content="Type:" HorizontalAlignment="Left" Margin="320,63,0,0" VerticalAlignment="Top" Height="27" Width="95" FontSize="11"/>
+        <Label Content="Size:" HorizontalAlignment="Left" Margin="320,90,0,0" VerticalAlignment="Top" Height="22" Width="95" FontSize="11"/>
+        <Label Content="Price:" HorizontalAlignment="Left" Margin="320,117,0,0" VerticalAlignment="Top" Height="22" Width="95" FontSize="11"/>
+        <Button x:Name="btnSaveCottage" Content="Save cottage" HorizontalAlignment="Left" Margin="558,63,0,0" VerticalAlignment="Top" Width="124" Height="22" Click="btnSaveCottage_Click" />
+        <Button x:Name="btnSelectCottage" Content="Select cottage" HorizontalAlignment="Left" Margin="558,90,0,0" VerticalAlignment="Top" Width="124" Height="22"  Click="btnSelectCottage_Click"/>
+        <ComboBox x:Name="cbCot" HorizontalAlignment="Left" Margin="558,36,0,0" VerticalAlignment="Top" Width="124" Height="22"/>
+        <ComboBox x:Name="cbCottType" HorizontalAlignment="Left" Margin="415,63,0,0" VerticalAlignment="Top" Width="124"/>
+        <ComboBox x:Name="cbCottSize" HorizontalAlignment="Left" Margin="415,90,0,0" VerticalAlignment="Top" Width="124"/>
+        <Button x:Name="btnDeleteCott" Content="Delete cottage" HorizontalAlignment="Left" Margin="558,117,0,0" VerticalAlignment="Top" Width="124" Height="22" Click="btnDeleteCott_Click"/>
+    </Grid>
+</Window>

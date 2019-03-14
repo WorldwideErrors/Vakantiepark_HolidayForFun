@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="dbHFF">
+  <DataContextMoniker Name="/dbHFFDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5351e418-22fe-41ef-87ac-d5defda0adb6" absoluteBounds="3.5, 3.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbHFFDataContext/cottage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e20071ef-7b4b-419b-9818-74b8e48ef714" absoluteBounds="3.515, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d2bf386-abb5-4965-8211-1ea1be403475" absoluteBounds="6.125, 6.75, 2, 1.5785953776041657">
+      <DataClassMoniker Name="/dbHFFDataContext/reservation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0c46081-2517-4bdc-ac53-f598cb24f467" absoluteBounds="6.1400000000000006, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd349c61-92e5-4fa8-bc34-4b2e409c6828" absoluteBounds="6.25, 2.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbHFFDataContext/cottagesinreservation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9bd4b8b-414f-4938-9b10-d0a3dd88db08" absoluteBounds="6.265, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a670c078-e6ac-4a33-bbe7-737d0ef899fa" absoluteBounds="0.75, 1.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dbHFFDataContext/cottagesize" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d48a451c-bc53-4bef-9b44-185eeadb12ff" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9bc649d8-ecad-47dd-b97a-c109070e46ae" absoluteBounds="0.75, 3.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbHFFDataContext/cottagetype" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca3b30af-0319-49b5-b0b1-f77d1e6bf8dd" absoluteBounds="0.765, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="565ae35d-f947-44d2-8d03-6146e08bc66e" absoluteBounds="0.75, 6.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/dbHFFDataContext/customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3866517-7a80-4441-b4a4-6d3dd53dbb80" absoluteBounds="0.765, 6.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="15b4e989-7f70-4447-aa8f-a31c94c8f5dc" absoluteBounds="3.5, 5.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/dbHFFDataContext/pricehistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a5e4d52-e25e-47d2-8a87-8f15dcb8b3e1" absoluteBounds="3.5149999999999997, 6.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 3.91429768880208); (6.25 : 3.91429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbHFFDataContext/cottage/cottage_cottagesinreservation" />
+      <nodes>
+        <classShapeMoniker Id="5351e418-22fe-41ef-87ac-d5defda0adb6" />
+        <classShapeMoniker Id="dd349c61-92e5-4fa8-bc34-4b2e409c6828" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.1875 : 6.75); (7.1875 : 4.20359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbHFFDataContext/reservation/reservation_cottagesinreservation" />
+      <nodes>
+        <classShapeMoniker Id="8d2bf386-abb5-4965-8211-1ea1be403475" />
+        <classShapeMoniker Id="dd349c61-92e5-4fa8-bc34-4b2e409c6828" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.56814697265625); (4.5 : 2.56814697265625); (4.5 : 3.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbHFFDataContext/cottagesize/cottagesize_cottage" />
+      <nodes>
+        <classShapeMoniker Id="a670c078-e6ac-4a33-bbe7-737d0ef899fa" />
+        <classShapeMoniker Id="5351e418-22fe-41ef-87ac-d5defda0adb6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.47199625651042); (3.5 : 4.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbHFFDataContext/cottagetype/cottagetype_cottage" />
+      <nodes>
+        <classShapeMoniker Id="9bc649d8-ecad-47dd-b97a-c109070e46ae" />
+        <classShapeMoniker Id="5351e418-22fe-41ef-87ac-d5defda0adb6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.95599609375); (6.125 : 7.95599609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbHFFDataContext/customer/customer_reservation" />
+      <nodes>
+        <classShapeMoniker Id="565ae35d-f947-44d2-8d03-6146e08bc66e" />
+        <classShapeMoniker Id="8d2bf386-abb5-4965-8211-1ea1be403475" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 5.20359537760417); (4.5 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbHFFDataContext/cottage/cottage_pricehistory" />
+      <nodes>
+        <classShapeMoniker Id="5351e418-22fe-41ef-87ac-d5defda0adb6" />
+        <classShapeMoniker Id="15b4e989-7f70-4447-aa8f-a31c94c8f5dc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
